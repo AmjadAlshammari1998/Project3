@@ -9,7 +9,8 @@ app.use(cors());
 const signUpRoute = require("./routers/route/signUpRoute");
 const loginRoute = require("./routers/route/loginRoute");
 const accountRoute =require("./routers/route/accaountRoute");
-
+const postRoute=require("./routers/route/postRoute");
+app.use(postRoute);
 app.use(signUpRoute);
 app.use(loginRoute);
 app.use(accountRoute);
