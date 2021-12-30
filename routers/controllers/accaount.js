@@ -2,7 +2,8 @@ const userModel = require("../../db/models/userModel");
 
 const profileInfo = async (req,res)=>{
     const id = req.params.id
-    const user = await userModel.find({_id:id}).populate("favorite")
+    console.log(id);
+    const user = await userModel.find({})
     res.status(200).json(user)
 }
 
@@ -13,3 +14,4 @@ const usersInfo = async(req,res)=>{
 }
 
 module.exports = { profileInfo, usersInfo };
+
