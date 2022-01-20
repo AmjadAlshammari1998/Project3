@@ -25,7 +25,7 @@ const deletePost = async (req, res) => {
   try {
 
     const deletePost = await postModel.findOneAndDelete({ _id: postId });
-    const allPost = await postModel.find({}).populate("userId")
+    const allPost = await postModel.find({}).populate("userId");
 
     res.status(201).json(allPost);
 
@@ -90,7 +90,7 @@ const allFavorite = async (req, res) => {
    const {text}=req.body;
    try {
      let updatPost=await postModel.findByIdAndUpdate({_id:id},{text})
-     const texts=await postModel.find({})
+     const texts=await postModel.find({}).populate("userId");
      res.status(200).json(texts);
    } catch (error) {
      res.status(403).json(error)

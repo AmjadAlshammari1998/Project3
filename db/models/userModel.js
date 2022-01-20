@@ -6,7 +6,8 @@ const userModel = new mongoose.Schema({
   imageProfile:{type: String},
   description:{type: String},
   password: { type: String, required: true },
-  favorite: [{type: mongoose.Schema.Types.ObjectId, ref: "postModel"}]
+  favorite: [{type: mongoose.Schema.Types.ObjectId, ref: "postModel"}],
+  admin:{type:Boolean}
 });
 
 module.exports = mongoose.model("userModel", userModel);

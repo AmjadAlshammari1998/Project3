@@ -10,9 +10,9 @@ const login = async (req, res) => {
       if (user) {
         const check = await bcrypt.compare(password, user.password);
         if (check === true) {
-          const payload = { userId: user._id, userName: user.account };
+          const payload = { userId: user._id, userName: user.account, admin: user.admin };
           const token = jwt.sign(payload, "ABC");
-          res.status(201).json({ token });
+          res.status(201).json({ token:token,payload:payload });
         } else {
           res.status(403).json("wrong PassWord!");
         }
